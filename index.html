@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Front Yard Bloods - Bewerbung |Danny Kushh</title>
+    <title>Front Yard Bloods - Bewerbung | DrDanny Kushh</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -15,7 +15,6 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            /* Das GIF als Hintergrund eingebunden mit einem dunklen Overlay für perfekte Lesbarkeit */
             background: linear-gradient(135deg, rgba(10, 10, 10, 0.90) 0%, rgba(43, 2, 2, 0.85) 50%, rgba(5, 5, 5, 0.90) 100%), 
                         url('bloods (1).gif');
             background-size: cover;
@@ -80,9 +79,26 @@
         .subtitle {
             font-size: 22px;
             color: #dddddd;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             letter-spacing: 1.5px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* GIF Bereich */
+        .gif-box {
+            width: 100%;
+            max-width: 950px;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 2px solid #8b0000;
+            box-shadow: 0 0 40px rgba(139, 0, 0, 0.6);
+            margin-bottom: 40px;
+        }
+
+        .gif-box img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Inhalts-Sektionen (Interaktiv / Ausklappbar) */
@@ -138,7 +154,7 @@
 
         .content-section.active .section-content {
             padding: 25px 30px 30px 30px;
-            max-height: 1200px;
+            max-height: 2500px;
         }
 
         .content-section.active .toggle-icon {
@@ -201,6 +217,121 @@
             top: 0;
         }
 
+        /* Rangkonzept Styling */
+        .rank-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rank-item {
+            background: rgba(26, 2, 2, 0.7);
+            padding: 14px 18px;
+            border-radius: 8px;
+            border-left: 4px solid #ff1a1a;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .rank-number {
+            font-family: 'Oxanium', sans-serif;
+            background: #8b0000;
+            color: #fff;
+            font-weight: 700;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+            font-size: 15px;
+            border: 1px solid #ff1a1a;
+        }
+
+        .rank-details h4 {
+            font-family: 'Oxanium', sans-serif;
+            color: #ff4d4d;
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+
+        .rank-details p {
+            color: #cccccc;
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* MP3 Player Design */
+        .music-player-section {
+            width: 100%;
+            background: rgba(20, 2, 2, 0.95);
+            border: 2px solid #8b0000;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 0 0 25px rgba(139, 0, 0, 0.4);
+        }
+
+        .player-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .track-title {
+            font-family: 'Oxanium', sans-serif;
+            color: #ff1a1a;
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .player-btn {
+            background: #8b0000;
+            color: white;
+            border: 1px solid #ff1a1a;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-family: 'Oxanium', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .player-btn:hover {
+            background: #ff1a1a;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        .volume-control input[type="range"] {
+            accent-color: #ff1a1a;
+            cursor: pointer;
+        }
+
         /* Buttons & Interaktionen */
         .btn-apply {
             display: inline-block;
@@ -248,6 +379,30 @@
         <h1>Bloods</h1>
         <p class="subtitle">Danny Kushh — Das Comeback des Jahres</p>
 
+        <!-- GIF unter dem Titel -->
+        <div class="gif-box">
+            <img src="Mozzy GIF by HipHopDX.gif" alt="Bloods Action GIF">
+        </div>
+
+        <!-- Musik Player -->
+        <div class="music-player-section">
+            <div class="player-info">
+                <div class="track-title">🎵 Aktuelles Lied: <span id="current-track-name" style="color: #ffffff;">A$AP Rocky - L$D (LOVE x $EX x DREAMS)</span></div>
+            </div>
+            <audio id="bg-audio" loop>
+                <source src="A$AP Rocky - L$D (LOVE x $EX x DREAMS).mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio-Element.
+            </audio>
+            <div class="player-controls">
+                <button class="player-btn" id="play-pause-btn" onclick="togglePlay()">Play  ▶</button>
+                <button class="player-btn" id="mute-btn" onclick="toggleMute()">Stumm 🔇</button>
+                <div class="volume-control">
+                    <span>Lautstärke:</span>
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5" onchange="changeVolume(this.value)" oninput="changeVolume(this.value)">
+                </div>
+            </div>
+        </div>
+
         <!-- OOC & IC Infos -->
         <div class="content-section active">
             <div class="section-header" onclick="toggleSection(this)">
@@ -260,6 +415,95 @@
                     <div class="info-item"><span>Aktuelle Fraktion:</span> Los Santos Vagos</div>
                     <div class="info-item"><span>Vorherige Posten:</span> 2x Vize Bloods, Ballas</div>
                     <div class="info-item"><span>Server:</span> Majestic RP Server 1</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rangkonzept Sektion -->
+        <div class="content-section active">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>Rangkonzept</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="rank-list">
+                    <div class="rank-item">
+                        <div class="rank-number">1</div>
+                        <div class="rank-details">
+                            <h4>Wannabe</h4>
+                            <p>Negativ aufgefallen und für eine gewissen Zeit muss er/sie sich erneut beweisen.</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-number">2</div>
+                        <div class="rank-details">
+                            <h4>Runner</h4>
+                            <p>Neue Mitglieder erhalten Rang 2 und haben die Möglichkeit sich zu beweisen.</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-number">3</div>
+                        <div class="rank-details">
+                            <h4>Youngster</h4>
+                            <p>Hat es geschafft sich als Runner durchzusetzen und ist festes Mitglied der Bloods.</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-number">4</div>
+                        <div class="rank-details">
+                            <h4>Blood</h4>
+                            <p>Konnte sich durch gewisse Aktivität, Eventfreudigkeit und das Kümmern um die neuen Anwärter etc. beweisen (Dieser Rang kümmert sich um die Runners und die Youngster).</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-number">5</div>
+                        <div class="rank-details">
+                            <h4>Pimp</h4>
+                            <p>Schon lange Zeit in der Gang, fällt oft positiv auf und hat sich einen Namen in der Gang gemacht.</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-number">6</div>
+                        <div class="rank-details">
+                            <h4>Caller</h4>
+                            <p>Verantwortlich für die Calls bei Events sowie bei Schießereien.</p>
+                        </div>
+                    </div>
+                    <div class="rank-item" style="border-left-color: #777777;">
+                        <div class="rank-number" style="background: #333; border-color: #555;">7</div>
+                        <div class="rank-details">
+                            <h4>GangBanger</h4>
+                            <p>Turfer (Hinweis: Negativ aufgefallen und von den Mitgliedern für gewisse Zeit abgestoßen).</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-number">8</div>
+                        <div class="rank-details">
+                            <h4>Big G</h4>
+                            <p>Ist für die Rekrutierung neuer Bloods zuständig.</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-number">9</div>
+                        <div class="rank-details">
+                            <h4>Mastermind Gangster</h4>
+                            <p>Entlastung der Vize OG´s und Teil der Leaderschaft und kümmert sich um die Events.</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-number">10</div>
+                        <div class="rank-details">
+                            <h4>Vize OG</h4>
+                            <p>Rechte Hand des OG´s.</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-number">11</div>
+                        <div class="rank-details">
+                            <h4>OG</h4>
+                            <p>Leader der Gang.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -345,7 +589,7 @@
             </div>
             <div class="section-content" style="text-align: center;">
                 <p class="text-block" style="margin-bottom: 25px;">
-                    Ich bedanke mich für eure Zeit und das Durchlesen meiner Bewerbung. Ich freue mich darauf, alte und neue Gesichter im HQ zu treffen und im persönlichen Gespräch zu zeigen, dass Danny Kushh bereit für das Comeback des Jahres ist.
+                    Ich bedanke mich für eure Zeit und das Durchlesen meiner Bewerbung. Ich freue mich darauf, alte und neue Gesichter im HQ zu treffen und im persönlichen Gespräch zu zeigen, dass DrDanny Kushh bereit für das Comeback des Jahres ist.
                 </p>
                 <div>
                     <button class="btn-apply" onclick="copyDiscordID()">Discord-ID kopieren</button>
@@ -357,18 +601,18 @@
     </div>
 
     <footer>
-        &copy; 2026 Bloods All Rights Reserved. By Donrath 
+        &copy; 2026 Front Yard Bloods – Majestic RP Server 1. All Rights Reserved.
     </footer>
 
-    <!-- JavaScript für die Interaktivität -->
+    <!-- JavaScript für Interaktivität und Player -->
     <script>
-        // Funktion zum Ein- und Ausklappen der Sektionen
+        // Sektionen ein- und ausklappen
         function toggleSection(headerElement) {
             const section = headerElement.parentElement;
             section.classList.toggle('active');
         }
 
-        // Funktion zum Kopieren der Discord-ID
+        // Discord-ID kopieren
         function copyDiscordID() {
             const discordID = "1056629713889669161";
             navigator.clipboard.writeText(discordID).then(() => {
@@ -380,6 +624,42 @@
             }).catch(err => {
                 alert("Fehler beim Kopieren: " + err);
             });
+        }
+
+        // MP3 Player Steuerung
+        const audio = document.getElementById('bg-audio');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const muteBtn = document.getElementById('mute-btn');
+        const volumeSlider = document.getElementById('volume-slider');
+
+        audio.volume = 0.5; // Start-Lautstärke auf 50%
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = "Pause ⏸";
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = "Play ▶";
+            }
+        }
+
+        function toggleMute() {
+            if (audio.muted) {
+                audio.muted = false;
+                muteBtn.textContent = "Stumm 🔇";
+            } else {
+                audio.muted = true;
+                muteBtn.textContent = "Laut 🔊";
+            }
+        }
+
+        function changeVolume(val) {
+            audio.volume = val;
+            if (val > 0 && audio.muted) {
+                audio.muted = false;
+                muteBtn.textContent = "Stumm 🔇";
+            }
         }
     </script>
 
