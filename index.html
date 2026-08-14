@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Yard Bloods - Bewerbung |Danny Kushh</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Das GIF als Hintergrund eingebunden mit einem dunklen Overlay für perfekte Lesbarkeit */
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.90) 0%, rgba(43, 2, 2, 0.85) 50%, rgba(5, 5, 5, 0.90) 100%), 
+                        url('bloods (1).gif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            width: 100%;
+            padding: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #8b0000;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-family: 'Oxanium', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #ff1a1a;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+        }
+
+        .main-container {
+            margin-top: 150px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+        }
+
+        h1 {
+            font-family: 'Oxanium', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: #ff1a1a;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #dddddd;
+            margin-bottom: 40px;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Inhalts-Sektionen (Interaktiv / Ausklappbar) */
+        .content-section {
+            width: 100%;
+            background: rgba(18, 18, 18, 0.92);
+            backdrop-filter: blur(5px);
+            border: 1px solid #550000;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            text-align: left;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            transition: border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .content-section:hover {
+            border-color: #ff1a1a;
+        }
+
+        .section-header {
+            padding: 22px 30px;
+            background: rgba(30, 2, 2, 0.85);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .content-section h2 {
+            font-family: 'Oxanium', sans-serif;
+            color: #ff1a1a;
+            font-size: 22px;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .toggle-icon {
+            color: #ff1a1a;
+            font-size: 20px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .section-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .content-section.active .section-content {
+            padding: 25px 30px 30px 30px;
+            max-height: 1200px;
+        }
+
+        .content-section.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 38px;
+            }
+        }
+
+        .info-item {
+            background: rgba(26, 2, 2, 0.8);
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff1a1a;
+            font-size: 16px;
+            color: #dddddd;
+        }
+
+        .info-item span {
+            color: #ff4d4d;
+            font-weight: 600;
+        }
+
+        p.text-block {
+            color: #cccccc;
+            line-height: 1.8;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        ul.styled-list {
+            list-style-type: none;
+        }
+
+        ul.styled-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: #dddddd;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        ul.styled-list li::before {
+            content: "🔥";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Buttons & Interaktionen */
+        .btn-apply {
+            display: inline-block;
+            background: linear-gradient(135deg, #cc0000 0%, #8b0000 100%);
+            color: #ffffff;
+            padding: 18px 45px;
+            font-family: 'Oxanium', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 2px solid #ff1a1a;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+
+        .btn-apply:hover {
+            background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
+            box-shadow: 0 0 35px rgba(255, 0, 0, 0.9);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            width: 100%;
+            padding: 25px;
+            text-align: center;
+            background: rgba(5, 5, 5, 0.95);
+            color: #777777;
+            font-size: 15px;
+            border-top: 1px solid #220000;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">Offizielle Bewerbung</div>
+    </header>
+
+    <div class="main-container">
+        <!-- Überschrift -->
+        <h1>Bloods</h1>
+        <p class="subtitle">Danny Kushh — Das Comeback des Jahres</p>
+
+        <!-- OOC & IC Infos -->
+        <div class="content-section active">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>Allgemeine Daten</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="grid-2">
+                    <div class="info-item"><span>IC Name:</span> DrDanny Kushh</div>
+                    <div class="info-item"><span>Aktuelle Fraktion:</span> Los Santos Vagos</div>
+                    <div class="info-item"><span>Vorherige Posten:</span> 2x Vize Bloods, Ballas</div>
+                    <div class="info-item"><span>Server:</span> Majestic RP Server 1</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Warum Bloods? -->
+        <div class="content-section active">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>Warum möchte ich den Bloods beitreten?</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <p class="text-block">
+                    Meine Verbindung zu den Bloods ist tief verwurzelt. Ich war in meiner Laufbahn auf Server 1 bereits zweimal als Vize bei den Bloods tätig und kenne die Strukturen, die Mentalität und das interne Herzblut dieser Gang in- und auswendig.
+                </p>
+                <p class="text-block">
+                    Nach meinen Zwischenstationen bei den Ballas und meiner aktuellen Zeit bei den Vagos zieht es mich unaufhaltsam zurück in meine wahre Heimat. Ich möchte mein Wissen, meine Führungsqualität und meine Erfahrung wieder voll und ganz in den Dienst der roten Flagge stellen, um die Vorherrschaft im Ghetto endgültig zu sichern.
+                </p>
+            </div>
+        </div>
+
+        <!-- Stärken & Schwächen -->
+        <div class="content-section active">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>Stärken & Schwächen</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="grid-2">
+                    <div>
+                        <h3 style="color: #ff4d4d; margin-bottom: 12px; font-family: 'Oxanium', sans-serif; font-size: 20px;">Stärken</h3>
+                        <ul class="styled-list">
+                            <li>Extreme Führungserfahrung im Crime-Bereich (Taktik, Event-Leitung & Diplomatie).</li>
+                            <li>Absolut fehlerfreie Regelwerkskenntnisse (0-Toleranz für Fail-RP).</li>
+                            <li>Hohe Stressresistenz & ruhige Call-outs in hitzigen Gefechten.</li>
+                            <li>Großes Ghetto-Netzwerk & absolute Loyalität zur Leaderschaft.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: #ff4d4d; margin-bottom: 12px; font-family: 'Oxanium', sans-serif; font-size: 20px;">Schwächen</h3>
+                        <ul class="styled-list">
+                            <li>Manchmal sehr direkt bei mangelnder Disziplin in Events.</li>
+                            <li>Hoher Anspruch an die Member, da nur das Beste für die Gang zählt.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biografie -->
+        <div class="content-section active">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>Biografie / Hintergrundgeschichte</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <p class="text-block">
+                    DrDanny Kushh ist kein unbeschriebenes Blatt auf den Straßen von Los Santos. Seinen Spitznamen „Dr.“ hat er sich durch seine chirurgische Präzision bei taktischen Straßenkämpfen und dem strategischen Planen von Routen erarbeitet. Danny stand bereits zweimal an der absoluten Spitze der Bloods-Hierarchie und leitete das Ghetto als Vize mit eiserner Hand.
+                </p>
+                <p class="text-block">
+                    Nach einer kreativen Pause und strategischen Einblicken bei den Ballas sowie den Vagos hat er den direkten Vergleich: Keine andere Gang besitzt die Struktur, den Zusammenhalt und das Potenzial der Bloods. Er kehrt nicht als Tourist zurück, sondern als Veteran, der bereit ist, das HQ zu stärken und die Bloods wieder dorthin zu führen, dorthin wo sie hingehören: an die absolute Spitze von Server 1.
+                </p>
+            </div>
+        </div>
+
+        <!-- Warum ich? -->
+        <div class="content-section active">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>Warum solltet ihr mich nehmen?</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <p class="text-block">
+                    Durch meine zweifache Amtszeit als Vize bei den Bloods bringe ich sofort einsetzbare Führungsqualitäten mit. Ich kenne die Fehler, die andere Gangs machen, da ich die Strukturen von innen gesehen habe. Ich benötige keine Einarbeitungszeit und kann der Leaderschaft ab Sekunde eins unter die Arme greifen.
+                </p>
+            </div>
+        </div>
+
+        <!-- Schlusswort & Action -->
+        <div class="content-section active">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>Schlusswort</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content" style="text-align: center;">
+                <p class="text-block" style="margin-bottom: 25px;">
+                    Ich bedanke mich für eure Zeit und das Durchlesen meiner Bewerbung. Ich freue mich darauf, alte und neue Gesichter im HQ zu treffen und im persönlichen Gespräch zu zeigen, dass Danny Kushh bereit für das Comeback des Jahres ist.
+                </p>
+                <div>
+                    <button class="btn-apply" onclick="copyDiscordID()">Discord-ID kopieren</button>
+                </div>
+                <p id="copy-feedback" style="color: #ff4d4d; font-size: 15px; margin-top: 12px; opacity: 0; transition: opacity 0.3s ease;">Discord-ID (1056629713889669161) in die Zwischenablage kopiert!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Bloods All Rights Reserved. By Donrath 
+    </footer>
+
+    <!-- JavaScript für die Interaktivität -->
+    <script>
+        // Funktion zum Ein- und Ausklappen der Sektionen
+        function toggleSection(headerElement) {
+            const section = headerElement.parentElement;
+            section.classList.toggle('active');
+        }
+
+        // Funktion zum Kopieren der Discord-ID
+        function copyDiscordID() {
+            const discordID = "1056629713889669161";
+            navigator.clipboard.writeText(discordID).then(() => {
+                const feedback = document.getElementById('copy-feedback');
+                feedback.style.opacity = '1';
+                setTimeout(() => {
+                    feedback.style.opacity = '0';
+                }, 3000);
+            }).catch(err => {
+                alert("Fehler beim Kopieren: " + err);
+            });
+        }
+    </script>
+
+</body>
+</html>
